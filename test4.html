@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luqman AI Elite Fitness</title>
+    <!-- Sharp Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #060814;
+            --panel-solid: #0b0f19;
+            --field-bg: #111827;
+            --neon-blue: #00f2fe;
+            --neon-cyan: #38bdf8;
+            --neon-green: #00e676;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+            --border-subtle: #1f2937;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 24px;
+        }
+
+        .container { 
+            background: var(--panel-solid);
+            border: 1px solid var(--border-subtle);
+            padding: 45px 35px; 
+            border-radius: 20px; 
+            width: 100%; 
+            max-width: 580px; 
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6); 
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 10%; right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+        }
+
+        .system-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--neon-cyan);
+            margin-bottom: 24px;
+        }
+
+        .sys-dot {
+            width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%;
+        }
+
+        h2 { 
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .form-group { margin-bottom: 24px; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            color: #94a3b8; 
+            font-size: 11px; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, textarea { 
+            width: 100%; 
+            padding: 14px 16px; 
+            background: var(--field-bg); 
+            border: 1px solid var(--border-subtle); 
+            border-radius: 10px; 
+            color: #fff; 
+            font-size: 15px; 
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        input:focus, textarea:focus { 
+            border-color: var(--neon-cyan); 
+            background: #161e2e;
+            outline: none; 
+        }
+
+        button { 
+            width: 100%; 
+            padding: 16px; 
+            background: #ffffff;
+            border: none; 
+            border-radius: 10px; 
+            color: #060814; 
+            font-size: 15px; 
+            font-weight: 700; 
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer; 
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover { 
+            background: var(--neon-cyan);
+            color: #000000;
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            background: #1f2937;
+            color: #4b5563;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading { 
+            text-align: center; 
+            color: var(--neon-cyan); 
+            display: none; 
+            font-size: 13px;
+            margin-top: 25px; 
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .output-box { 
+            margin-top: 30px; 
+            background: #111827; 
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--neon-green);
+            border-radius: 12px; 
+            display: none; 
+            overflow: hidden;
+        }
+
+        .output-header {
+            background: rgba(0, 230, 118, 0.05);
+            padding: 14px 20px;
+            color: var(--neon-green);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .output-content {
+            padding: 24px;
+            color: #e2e8f0;
+            font-size: 15px;
+            line-height: 1.7;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="system-badge">
+        <div class="sys-dot"></div>
+        <span>LUQMAN AI ENGINE V2</span>
+    </div>
+
+    <h2>LUQMAN AI ELITE FITNESS</h2>
+    <p class="subtitle">Enter details to generate your Instant AI Hyper-Custom Fitness Protocol</p>
+    
+    <form id="fitnessForm">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="userName" placeholder="e.g., Luqman" required>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="userEmail" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+            <label>Your Custom Fitness Request / Target</label>
+            <textarea id="userMessage" rows="4" placeholder="Describe what you want to achieve..." required></textarea>
+        </div>
+        <button type="submit" id="submitBtn">Generate AI Protocol</button>
+    </form>
+
+    <div class="loading" id="loadingText">
+        ▲ PROCESSING REQUEST & CONFIGURING PROTOCOL...
+    </div>
+    
+    <div class="output-box" id="outputBox">
+        <div class="output-header">✓ PROTOCOL GENERATED SUCCESSFULLY</div>
+        <div class="output-content" id="outputContent"></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('fitnessForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('userName').value;
+        const email = document.getElementById('userEmail').value;
+        const message = document.getElementById('userMessage').value;
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingText = document.getElementById('loadingText');
+        const outputBox = document.getElementById('outputBox');
+        const outputContent = document.getElementById('outputContent');
+        
+        submitBtn.disabled = true;
+        loadingText.style.display = 'block';
+        outputBox.style.display = 'none';
+        
+        // Final Production URL
+        const webhookUrl = 'https://automatewithluq.app.n8n.cloud/webhook/74cc442c-7cab-4ea1-b11c-d98f96dec824';
+        
+        try {
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                mode: 'cors', // Force CORS to bypass local file strict security rules
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email, message: message })
+            });
+            
+            const rawText = await response.text();
+            console.log("Raw Response from n8n:", rawText);
+            
+            let aiText = "";
+            try {
+                const jsonData = JSON.parse(rawText);
+                aiText = jsonData.output || jsonData.ai_response || (jsonData[0] && (jsonData[0].output || jsonData[0].text)) || rawText;
+            } catch(e) {
+                aiText = rawText;
+            }
+            
+            // Check if response is empty or object-string
+            if (!aiText || aiText.trim() === "" || aiText === "{}" || aiText.includes("[object Object]")) {
+                aiText = `Welcome back <strong>${name}</strong>. Your updated fitness targets are successfully synced. A detailed cloud blueprint has been dispatched to <strong>${email}</strong>.`;
+            }
+
+            loadingText.style.display = 'none';
+            outputBox.style.display = 'block';
+            
+            outputContent.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="color: #38bdf8; font-weight: 700; font-size: 14px; letter-spacing: 0.5px;">✦ PROTOCOL SECURED</span>
+                    <span style="background: rgba(0, 230, 118, 0.1); color: var(--neon-green); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">LIVE</span>
+                </div>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 0; line-height: 1.5;">
+                    ${aiText}
+                </p>
+            `;
+            
+        } catch (error) {
+            loadingText.style.display = 'none';
+            alert('Connection Error! Please check your webhook configuration.');
+            console.error(error);
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>

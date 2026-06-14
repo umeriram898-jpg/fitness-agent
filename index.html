@@ -3,156 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luqman AI Elite Fitness</title>
+    <title>Elite AI Fitness Protocol</title>
+    <!-- Google Fonts for Premium Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- BRAND THEME & CORE STYLES --- */
+        /* --- GLOBAL PREMIUM SETUP --- */
+        * {
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #050505;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at center, #0a1118 0%, #020406 100%);
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 40px 20px;
         }
 
-        .container {
+        /* --- CARD DESIGN --- */
+        .fitness-card {
+            background: rgba(13, 17, 23, 0.75);
+            border: 1px solid rgba(0, 255, 135, 0.15);
+            border-radius: 24px;
+            padding: 45px 40px;
             width: 100%;
-            max-width: 480px;
-            padding: 20px;
-            box-sizing: border-box;
+            max-width: 580px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 255, 135, 0.03);
+            backdrop-filter: blur(12px);
         }
 
-        .card {
-            background: #0d1117;
-            border: 1px solid #1f242c;
-            border-radius: 12px;
-            padding: 30px 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 255, 135, 0.1);
+        .engine-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 255, 135, 0.08);
+            border: 1px solid rgba(0, 255, 135, 0.2);
             color: #00ff87;
             font-size: 11px;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .engine-badge span {
+            width: 6px;
+            height: 6px;
+            background: #00ff87;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff87;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
             letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #a3b3bc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             color: #8b949e;
-            font-size: 14px;
-            margin: 0 0 28px 0;
-            line-height: 1.4;
+            font-size: 15px;
+            margin: 0 0 35px 0;
+            line-height: 1.6;
         }
 
-        /* --- FORM STYLES --- */
+        /* --- MODERN INPUTS --- */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            position: relative;
         }
 
         label {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.75px;
             color: #8b949e;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         input[type="text"],
         input[type="email"],
         textarea {
             width: 100%;
-            padding: 12px;
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
+            padding: 16px;
+            background: #090d13;
+            border: 1px solid #21262d;
+            border-radius: 12px;
             color: #ffffff;
-            font-size: 14px;
-            box-sizing: border-box;
-            transition: border-color 0.2s ease;
+            font-size: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
         }
 
         input:focus, textarea:focus {
             outline: none;
             border-color: #00ff87;
+            background: #0d131c;
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.08), inset 0 2px 4px rgba(0,0,0,0.2);
         }
 
         textarea {
-            resize: vertical;
-            height: 100px;
+            resize: none;
+            height: 120px;
+            line-height: 1.5;
         }
 
+        /* --- GLOWING BUTTON --- */
         .submit-btn {
             width: 100%;
-            background: transparent;
-            color: #00ff87;
-            border: 1px solid #00ff87;
-            padding: 14px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+            color: #020406;
+            border: none;
+            padding: 16px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(0, 255, 135, 0.25);
+            margin-top: 15px;
         }
 
         .submit-btn:hover {
-            background: rgba(0, 255, 135, 0.1);
-            box-shadow: 0 0 15px rgba(0, 255, 135, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 255, 135, 0.45);
+        }
+
+        .submit-btn:disabled {
+            background: #21262d;
+            color: #8b949e;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         /* --- LOADING STATUS --- */
         .status-message {
             display: none;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.5px;
             color: #60efff;
-            margin-top: 20px;
+            margin-top: 25px;
             text-transform: uppercase;
             animation: pulse 1.5s infinite ease-in-out;
         }
 
         @keyframes pulse {
-            0% { opacity: 0.6; }
+            0% { opacity: 0.5; }
             50% { opacity: 1; }
-            100% { opacity: 0.6; }
+            100% { opacity: 0.5; }
         }
 
-        /* --- PREMIUM GLOW POPUP (MODAL) STYLES --- */
+        /* --- PREMIUM POPUP (MODAL) --- */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(2, 4, 6, 0.9);
+            backdrop-filter: blur(12px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.4s ease-in-out;
         }
 
         .modal-overlay.active {
@@ -162,15 +195,14 @@
 
         .modal-content {
             background: #0d1117;
-            border: 1px solid #00ff87;
-            border-radius: 16px;
-            padding: 40px 30px;
-            max-width: 420px;
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 460px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 0 30px rgba(0, 255, 135, 0.15), inset 0 0 15px rgba(0, 255, 135, 0.05);
-            transform: scale(0.7) translateY(-30px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 135, 0.1);
+            transform: scale(0.8) translateY(-20px);
         }
 
         .modal-overlay.active .modal-content {
@@ -178,133 +210,130 @@
         }
 
         .success-icon-wrap {
-            width: 65px;
-            height: 65px;
-            background: rgba(0, 255, 135, 0.1);
+            width: 75px;
+            height: 75px;
+            background: rgba(0, 255, 135, 0.08);
             border: 2px solid #00ff87;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 135, 0.2);
+            margin: 0 auto 24px;
+            box-shadow: 0 0 25px rgba(0, 255, 135, 0.2);
         }
 
         .success-icon {
             color: #00ff87;
-            font-size: 30px;
+            font-size: 34px;
             font-weight: bold;
         }
 
         .modal-title {
             color: #ffffff;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
         }
 
         .modal-subtitle {
             color: #8b949e;
             font-size: 14px;
-            margin: 0 0 24px 0;
-            line-height: 1.4;
+            margin: 0 0 28px 0;
+            line-height: 1.5;
         }
 
         .email-badge-box {
-            background: rgba(56, 139, 253, 0.1);
+            background: rgba(56, 139, 253, 0.08);
             border: 1px solid rgba(56, 139, 253, 0.2);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 18px;
             display: flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 14px;
             text-align: left;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .badge-icon {
-            font-size: 22px;
+            font-size: 24px;
+            line-height: 1;
         }
 
         .badge-text {
             color: #c9d1d9;
-            font-size: 13px;
-            line-height: 1.5;
+            font-size: 13.5px;
+            line-height: 1.6;
             margin: 0;
         }
 
         .modal-btn {
-            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
-            color: #050505;
-            border: none;
-            border-radius: 6px;
-            padding: 12px 30px;
+            background: #161b22;
+            color: #ffffff;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 14px 30px;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(0, 255, 135, 0.2);
-            transition: all 0.3s ease;
         }
 
         .modal-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 255, 135, 0.4);
+            background: #21262d;
+            border-color: #8b949e;
+            color: #00ff87;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="card">
-            <div class="badge">● Luqman AI Engine V2</div>
-            <h1>LUQMAN AI ELITE FITNESS</h1>
-            <p class="subtitle">Enter details to generate your Instant AI Hyper-Custom Fitness Protocol</p>
+    <div class="fitness-card">
+        <div class="engine-badge"><span></span>AI Engine V2</div>
+        <h1>AI ELITE FITNESS</h1>
+        <p class="subtitle">Enter your details to generate your Instant AI Hyper-Custom Fitness Protocol.</p>
 
-            <form id="fitnessForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" placeholder="Luqman" required>
-                </div>
+        <form id="fitnessForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="emailAddress">Email Address</label>
-                    <input type="email" id="emailAddress" placeholder="example@gmail.com" required>
-                </div>
+            <div class="form-group">
+                <label for="emailAddress">Email Address</label>
+                <input type="email" id="emailAddress" placeholder="name@example.com" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="fitnessRequest">Your Custom Fitness Request / Target</label>
-                    <textarea id="fitnessRequest" placeholder="hey, i want to lose 10kg weight..." required></textarea>
-                </div>
+            <div class="form-group">
+                <label for="fitnessRequest">Your Custom Fitness Request / Target</label>
+                <textarea id="fitnessRequest" placeholder="Describe your fitness goals (e.g., lose 10kg weight, build lean muscle)..." required></textarea>
+            </div>
 
-                <button type="submit" class="submit-btn" id="btnText">Generate AI Protocol</button>
-            </form>
+            <button type="submit" class="submit-btn" id="btnText">Generate AI Protocol</button>
+        </form>
 
-            <div id="statusMessage" class="status-message">▲ Processing Request & Configuring Protocol...</div>
-        </div>
+        <div id="statusMessage" class="status-message">▲ Processing Request & Configuring Protocol...</div>
     </div>
 
-    <!-- MODERN SUCCESS MODAL (POP-UP) -->
+    <!-- HIGH-END SUCCESS MODAL POPUP -->
     <div id="successModal" class="modal-overlay">
         <div class="modal-content">
             <div class="success-icon-wrap">
                 <div class="success-icon">✓</div>
             </div>
             <h2 class="modal-title">Protocol Generated!</h2>
-            <p class="modal-subtitle">Your Elite Fitness Dashboard configuration is complete.</p>
+            <p class="modal-subtitle">Your personalized layout and training architecture is complete.</p>
             
             <div class="email-badge-box">
                 <span class="badge-icon">📩</span>
-                <p class="badge-text">The full evolutionary blueprint, macro breakdown, and progression sheet have been transmitted directly to your secure email.</p>
+                <p class="badge-text">The complete custom blueprint, macro matrix, and training logs have been dispatched successfully to your email address.</p>
             </div>
 
             <button class="modal-btn" onclick="closeModal()">Back to Dashboard</button>
         </div>
     </div>
 
-    <!-- --- JAVASCRIPT LOGIC --- -->
     <script>
-        // CHANGE THIS TO YOUR LIVE N8N WEBHOOK URL
+        // CHANGE THIS TO YOUR LIVE N8N WEBHOOK URL IF NEEDED
         const N8N_WEBHOOK_URL = 'https://umeriram898.app.n8n.cloud/webhook/bc73fd50-a9cb-4c57-8ea0-cd7a1f5999cb';
 
         document.getElementById('fitnessForm').addEventListener('submit', async function(e) {
@@ -314,13 +343,12 @@
             const email = document.getElementById('emailAddress').value;
             const request = document.getElementById('fitnessRequest').value;
 
-            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btnText');
             const statusMessage = document.getElementById('statusMessage');
 
-            // Show Loading State
+            // Set Loading UI
             statusMessage.style.display = 'block';
-            document.getElementById('btnText').disabled = true;
-            document.getElementById('btnText').style.opacity = '0.5';
+            btnText.disabled = true;
 
             try {
                 const response = await fetch(N8N_WEBHOOK_URL, {
@@ -336,7 +364,6 @@
                 });
 
                 if (response.ok) {
-                    // Success! Show Premium Modal Popup
                     showSuccessModal();
                 } else {
                     alert('Connection Error! Please check your webhook configuration.');
@@ -345,22 +372,18 @@
                 console.error('Error:', error);
                 alert('Connection Error! Please check your webhook configuration.');
             } finally {
-                // Reset Form Button State
                 statusMessage.style.display = 'none';
-                document.getElementById('btnText').disabled = false;
-                document.getElementById('btnText').style.opacity = '1';
+                btnText.disabled = false;
             }
         });
 
-        // Open Popup Function
         function showSuccessModal() {
             document.getElementById('successModal').classList.add('active');
         }
 
-        // Close Popup Function
         function closeModal() {
             document.getElementById('successModal').classList.remove('active');
-            document.getElementById('fitnessForm').reset(); // Reset fields automatically
+            document.getElementById('fitnessForm').reset();
         }
     </script>
 

@@ -332,8 +332,8 @@
         </div>
     </div>
 
+    <!-- --- CORRECTED JAVASCRIPT LOGIC --- -->
     <script>
-        // CHANGE THIS TO YOUR LIVE N8N WEBHOOK URL IF NEEDED
         const N8N_WEBHOOK_URL = 'https://umeriram898.app.n8n.cloud/webhook/bc73fd50-a9cb-4c57-8ea0-cd7a1f5999cb';
 
         document.getElementById('fitnessForm').addEventListener('submit', async function(e) {
@@ -343,12 +343,14 @@
             const email = document.getElementById('emailAddress').value;
             const request = document.getElementById('fitnessRequest').value;
 
+            // Variables match perfectly with the button ID now
             const btnText = document.getElementById('btnText');
             const statusMessage = document.getElementById('statusMessage');
 
-            // Set Loading UI
+            // Set Loading UI State
             statusMessage.style.display = 'block';
             btnText.disabled = true;
+            btnText.style.opacity = '0.5';
 
             try {
                 const response = await fetch(N8N_WEBHOOK_URL, {
@@ -372,8 +374,10 @@
                 console.error('Error:', error);
                 alert('Connection Error! Please check your webhook configuration.');
             } finally {
+                // Reset UI Element states back to normal
                 statusMessage.style.display = 'none';
                 btnText.disabled = false;
+                btnText.style.opacity = '1';
             }
         });
 
